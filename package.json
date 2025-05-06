@@ -1,0 +1,48 @@
+{
+  "name": "ssr-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
+    "axios": "^1.7.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
+    "gsap": "^3.12.7",
+    "lucide-vue-next": "^0.473.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-prism": "^2.3.0",
+    "pinia": "^2.3.1",
+    "prismjs": "^1.29.0",
+    "radix-vue": "^1.9.12",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.173.0",
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.1.3",
+    "vue-router": "^4.5.0",
+    "vue3-carousel": "^0.13.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/d3": "^7.4.3",
+    "@types/node": "^22.10.7",
+    "@types/three": "^0.173.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "autoprefixer": "^10.4.20",
+    "sass": "^1.83.4",
+    "size-limit": "^11.1.6",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5",
+    "vite-svg-loader": "^5.1.0",
+    "vue-tsc": "^2.2.0"
+  }
+}
