@@ -7,7 +7,7 @@
           -- {{ displayText }}
         </h2>
         <h1 class="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-gray-100">
-          Shi ShuangRan
+          Shi SR
           <span class="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
             🛹👻🛹
           </span>
@@ -50,7 +50,7 @@ let timeoutId = null
 const skills = computed(() => [
 t('homePage.webDevel'),
 t('homePage.uiuxDes'),
-t('homePage.fullStark') // 注意键名需要与语言包一致
+t('homePage.fullStark') 
 ])
 
 const typeText = () => {

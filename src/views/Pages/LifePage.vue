@@ -55,7 +55,7 @@
 
         <!-- Right -->
         <div class="col-span-3 grid grid-rows-4 gap-6">
-          <div class="grid grid-cols-2 gap-6 row-span-2 rounded-lg p-6"
+          <div class="grid grid-cols-2 gap-6 row-span-2 rounded-lg p-4"
             :class="[darkModeStore.isDark ? 'bg-zinc-800/50' : 'bg-slate-500/30 shadow-lg']">
             <div class="group relative aspect-square bg-zinc-800/50 rounded-lg overflow-hidden">
               <img :src="photos[2].cover" alt="Glass Animals"

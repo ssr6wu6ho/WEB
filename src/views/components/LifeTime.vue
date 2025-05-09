@@ -1,6 +1,6 @@
 <template>
   <main class="grid md:grid-cols-1 lg:grid-cols-2 
-  border rounded-2xl border-gray-400/20 border-2 p-8">
+  border rounded-2xl border-gray-400/20 border-2">
 
     <div class="mb-10 lg:col-span-1 rounded-lg shadow-md p-6">
       <div class="h-[400px] rounded-lg relative">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="lg:col-span-2 mt-4 p-4 rounded-lg">
-      <h4 class="mb-3">{{ selectedAge }}岁时的详细数据</h4>
+      <h4 class="mb-3">{{ selectedAge }}所投入的时间</h4>
       <div class="space-y-3">
         <div v-for="activity in activities" :key="activity.key" class="w-full">
           <div class="flex justify-between mb-1 text-sm">
@@ -45,32 +45,31 @@ const particlesRef = ref<SVGElement | null>(null);
 // 定义时间数据类型
 interface TimeData {
   age: number;
-  social: number;
-  hardware: number;
-  Coding: number;
-  study: number;
-  creativity: number;
+  Front_end: number;
+  Hardware: number;
+  Drone: number;
+  SkateBoard: number;
   [key: string]: number;
 }
 
 // 活动定义
 const activities = [
-  { key: "social", color: "#8dd3c7" },
-  { key: "hardware", color: "#80b1d3" },
-  { key: "Coding", color: "#4db6ac" },
-  { key: "study", color: "#a4c2f4" },
-  { key: "creativity", color: "#ffd8b1" }
+  { key: "Front_end", color: "#8dd3c7" },
+  { key: "Hardware", color: "#80b1d3" },
+
+  { key: "Drone", color: "#4db6ac" },
+  { key: "SkateBoard", color: "#a4c2f4" },
 ];
 
 // 模拟时间数据 (0-24岁)
 const timeData: TimeData[] = [
-  { age: 15, social: 8, hardware: 5, Coding: 0, study: 0, creativity: 0 },
-  { age: 16, social: 0, hardware: 10, Coding: 0, study: 0, creativity: 0 },
-  { age: 17, social: 0, hardware: 5, Coding: 0, study: 0, creativity: 0 },
-  { age: 18, social: 0, hardware: 5, Coding: 0, study: 0, creativity: 0 },
-  { age: 19, social: 0, hardware: 30, Coding: 20, study: 0, creativity: 0 },
-  { age: 20, social: 0, hardware: 40, Coding: 0, study: 0, creativity: 0 },
-  { age: 21, social: 0, hardware: 30, Coding: 35, study: 0, creativity: 0 }
+  { age: 15, Front_end: 0, Hardware: 5, Drone: 0, SkateBoard: 0 },
+  { age: 16, Front_end: 0, Hardware: 10, Drone: 0, SkateBoard: 0 },
+  { age: 17, Front_end: 0, Hardware: 5, Drone: 50, SkateBoard: 5 },
+  { age: 18, Front_end: 0, Hardware: 5, Drone: 40, SkateBoard: 0 },
+  { age: 19, Front_end: 0, Hardware: 30, Drone: 20, SkateBoard: 20 },
+  { age: 20, Front_end: 10, Hardware: 40, Drone: 0, SkateBoard: 20 },
+  { age: 21, Front_end: 50, Hardware: 30, Drone: 0, SkateBoard: 0 }
 ];
 
 // 获取当前年龄的数据
@@ -176,11 +175,10 @@ const drawChart = () => {
 
   // 添加活动标签
   const activityPositions = [
-    { key: "social", x: 20, y: 85 },
-    { key: "hardware", x: 8, y: 60 },
-    { key: "Coding", x: 20, y: 40 },
-    { key: "study", x: 6, y: 30 },
-    { key: "creativity", x: 16, y: 70 }
+    { key: "Front_end", x: 15, y: 80 },
+    { key: "Drone", x: 15, y: 70 },
+    { key: "Hardware", x: 15, y: 60 },
+    { key: "SkateBoard", x: 15, y: 50 }
   ];
 
   g.selectAll(".activity-label")

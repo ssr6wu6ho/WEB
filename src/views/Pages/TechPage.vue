@@ -39,7 +39,7 @@
 
       <section class="mb-16">
         <div class="gap-8 justify-content ">
-          <h3 class="text-xl font-bold mb-2 flex items-center">{{t('techPage.techStack')}}</h3>
+          <h3 class="text-xl font-bold mb-2 flex items-center">{{ t('techPage.techStack') }}</h3>
           <div class="p-6 rounded-lg">
             <div v-for="skill in TECH_STACK" key="skills" class="mb-8">
               <h3 :class="skill.title" class="text-gray-400 mb-4">{{ skill.title }}</h3>
@@ -51,18 +51,19 @@
                   <div class="flex h-2 rounded-full overflow-hidden"
                     :class="[darkModeStore.isDark ? 'bg-zinc-700' : 'bg-gray-200']">
                     <div class="h-full rounded-full" :class="[frontend.color]" :style="{ width: `${frontend.level}%` }">
-                      ssssssssssss</div>
+                      ------</div>
                   </div>
-                </div>
-                <div v-for="backend in skill.backend" class="flex items-center gap-2 p-2">
-                  <component :is="backend.icons" class="w-6 h-6" />
-                  <p>{{ backend.skill }}</p>
                 </div>
               </div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
                 <div v-for="hardwear in skill.hardWear" class="flex items-center gap-2 p-2">
                   <component :is="hardwear.icons" class="w-6 h-6" />
                   <p>{{ hardwear.skill }}</p>
+                  <div class="flex h-2 rounded-full overflow-hidden"
+                    :class="[darkModeStore.isDark ? 'bg-zinc-700' : 'bg-gray-200']">
+                    <div class="h-full rounded-full" :class="[hardwear.color]" :style="{ width: `${hardwear.level}%` }">
+                      ------</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -74,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import {computed} from 'vue';
+import { computed } from 'vue';
 import { CodeIcon } from 'lucide-vue-next';
 import { userBlogPage } from '../../store/stateStore.ts';
 import { userDarkMOdel } from '../../store/stateStore.ts'
@@ -120,7 +121,7 @@ const projects = computed(() => [
   },
 ]);
 
-const TECH_STACK =  computed(() =>[
+const TECH_STACK = computed(() => [
   {
     title: t('techPage.softWear'),
     frontend: [
@@ -143,14 +144,6 @@ const TECH_STACK =  computed(() =>[
         color: 'bg-purple-500'
       }
     ],
-    backend: [
-      {
-        skill: 'springboot',
-        icons: svg_spring,
-        level: 30,
-        color: 'bg-pink-500'
-      }
-    ],
   },
   {
     title: t('techPage.hardWear'),
@@ -158,17 +151,20 @@ const TECH_STACK =  computed(() =>[
       {
         skill: 'arduino + esp8266/32',
         icons: svg_arduino,
-        level: 55
+        level: 55,
+        color: 'bg-green-500'
       },
       {
         skill: 'micropython + opencv',
         icons: svg_python,
-        level: 40
+        level: 40,
+        color: 'bg-blue-500'
       },
       {
         skill: 'linux',
         icons: svg_linux,
-        level: 40
+        level: 40,
+        color: 'bg-purple-500'
       },
     ]
   }

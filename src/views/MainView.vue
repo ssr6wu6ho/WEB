@@ -8,7 +8,8 @@
   <div class="min-h-screen font-mono transition-colors duration-300"
     :class="[darkModeStore.isDark ? 'bg-gradient-to-r from-zinc-900 to-purple-950 text-gray-400' : 'bg-gradient-to-r from-gray-700 to-gray-500 text-zinc-800']">
     <!-- 右上角 -->
-    <div v-show="$route.path === '/'"  :class="[windowWidth < 768 ? 'fixed top-12 right-6 z-10' : 'fixed top-6 right-6 z-10']">
+    <div v-show="$route.path === '/'"
+      :class="[windowWidth < 768 ? 'fixed top-12 right-6 z-10' : 'fixed top-6 right-6 z-10']">
       <RightTopPanel />
     </div>
     <!-- 左侧浮动面板 -->
@@ -19,7 +20,8 @@
     </div>
     <!-- 主要内容区域 -->
     <div v-if="$route.path === '/'" class="duration-300 z-50"
-      :class="[slideBarExtendStore.leftBarExtend ? 'ml-[300px]' : 'ml-[50px]']">
+      :class="[windowWidth < 768 ? 'w-full' : slideBarExtendStore.leftBarExtend ? 'ml-[300px]' : 'ml-[50px]']">
+
       <main>
         <section ref="homePage" id="homePage">
           <HomePage />
