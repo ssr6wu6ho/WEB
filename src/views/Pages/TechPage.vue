@@ -30,8 +30,9 @@
               <component v-for="icon in project.icon" :key="icon" :is="icon" class=" w-6 h-6">
               </component>
             </div>
+            <br>
             <button class="text-sm font-medium hover:text-white transition-colors md:mt-4">
-              Read More →
+              {{ t('techPage.readMore') }} →
             </button>
           </div>
         </div>

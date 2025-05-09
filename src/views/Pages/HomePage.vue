@@ -1,6 +1,6 @@
 <template>
   <!-- 主要内容 -->
-  <main class="relative flex min-h-screen items-center mr-10">
+  <main class="relative flex min-h-screen items-center ml-10 mr-10">
     <section v-if="darkModeStore.isDark" class="w-full max-w-5xl lg:px-16 animate-float">
       <div class="space-y-6 backdrop-blur-sm p-6 rounded-2xl bg-white/5">
         <h2 class="text-xl font-medium tracking-wide text-gray-400">

@@ -24,13 +24,14 @@ export const i18n = createI18n({
             } as const,
             techPage: {
                 projects: "projects",
-                personWeb:"Personal Website",
-                personWebIntro:"A simple personal website project built with Vue3 + TypeScript, enhanced with JavaScript libraries like Three.js and D3.js.",
-                APPXIOT:"Android APP IoT Gadget",
-                APPXIOTIntro:"An IoT x Android APP toy integrated with large language models, a practice project using Arduino (C++) and Java.",
+                personWeb: "Personal Website",
+                personWebIntro: "A simple personal website project built with Vue3 + TypeScript, enhanced with JavaScript libraries like Three.js and D3.js.",
+                APPXIOT: "Android APP IoT Gadget",
+                APPXIOTIntro: "An IoT x Android APP toy integrated with large language models, a practice project using Arduino (C++) and Java.",
                 techStack: "TECH STACK",
-                softWear:"SOFTWARE",
-                hardWear:"HARDWARE"
+                softWear: "SOFTWARE",
+                hardWear: "HARDWARE",
+                readMore: "REDA MORE"
             } as const
         },
         zh: {
@@ -42,13 +43,14 @@ export const i18n = createI18n({
             } as const,
             techPage: {
                 projects: "项目",
-                personWeb:"个人网页",
-                personWebIntro:"一个由vue3+ts搭建的简单个人网页项目,three,d3等js库进行点缀",
-                APPXIOT:"安卓APP物联网小摆件",
-                APPXIOTIntro:"接入大模型的物联网x安卓APP小玩具,Arduino(C++)+java的小练习",
+                personWeb: "个人网页",
+                personWebIntro: "一个由vue3+ts搭建的简单个人网页项目,three,d3等js库进行点缀",
+                APPXIOT: "安卓APP物联网小摆件",
+                APPXIOTIntro: "接入大模型的物联网x安卓APP小玩具,Arduino(C++)+java的小练习",
                 techStack: "技术栈",
-                softWear:"软件",
-                hardWear:"硬件"
+                softWear: "软件",
+                hardWear: "硬件",
+                readMore: "阅读更多"
             } as const
         },
         ja: {
@@ -57,16 +59,17 @@ export const i18n = createI18n({
                 webDevel: "WEB Development",
                 uiuxDes: "UI/UX Design",
                 fullStark: "Full Stack",
-            } as const, 
+            } as const,
             techPage: {
                 projects: "プロジェクト",
-                personWeb:"個人ウェブサイト",
-                personWebIntro:"Vue3 + TypeScriptで構築されたシンプルな個人ウェブサイトプロジェクト。Three.jsやD3.jsなどのJavaScriptライブラリで装飾を施しています。",
-                APPXIOT:"Androidアプリ IoTガジェット",
-                APPXIOTIntro:"大規模言語モデルを統合したIoT x Androidアプリのおもちゃ。Arduino（C++）とJavaを使用した練習プロジェクトです。",
+                personWeb: "個人ウェブサイト",
+                personWebIntro: "Vue3 + TypeScriptで構築されたシンプルな個人ウェブサイトプロジェクト。Three.jsやD3.jsなどのJavaScriptライブラリで装飾を施しています。",
+                APPXIOT: "Androidアプリ IoTガジェット",
+                APPXIOTIntro: "大規模言語モデルを統合したIoT x Androidアプリのおもちゃ。Arduino（C++）とJavaを使用した練習プロジェクトです。",
                 techStack: "技術スタック",
-                softWear:"ソフトウェア",
-                hardWear:"ハードウェア"
+                softWear: "ソフトウェア",
+                hardWear: "ハードウェア",
+                readMore: "阅读更多"
             } as const
         }
     } as const,

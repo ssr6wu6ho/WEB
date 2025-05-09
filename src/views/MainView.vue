@@ -53,6 +53,7 @@ import { ref, onMounted, onUnmounted, watch } from "vue";
 import {
   userDarkMOdel, userSlideBarExtend, userCurrentPage
 } from "../store/stateStore";
+import { getMessages } from "../api/message_request";
 import MusicPanel from "./components/MusicPanel.vue";
 import LeftPanel from "./components/LeftPanel.vue";
 import RightTopPanel from "./components/RightTopPanel.vue";
@@ -74,6 +75,25 @@ const homePage = ref<HTMLElement | null>(null);
 const techPage = ref<HTMLElement | null>(null);
 const lifePage = ref<HTMLElement | null>(null);
 const musicPage = ref<HTMLElement | null>(null);
+//消息获取
+interface Message {
+  id: number
+  author_name: string
+  author_avatar: string
+  created_at: string
+  content: string
+}
+const messages = ref<Message[]>([]);
+
+const loadMessages = async () => {
+  try {
+    messages.value = (await getMessages()) as Message[];
+    console.log(messages.value)
+  }catch (error) {
+        console.error('加载留言失败:', error);
+
+  }
+}
 
 //主组件通过监听滚动事件来更新currentIndex，这样当用户滚动时，currentIndex会自动更新。但反过来，如果直接修改currentIndex，可能不会触发滚动
 //或者导致滚动位置和状态不一致，出现bug。
@@ -121,6 +141,7 @@ onMounted(async () => {
   window.addEventListener("scroll", renewNavBar);
   updateWidth();
   renewNavBar();
+  loadMessages();
   slideBarExtendStore.leftBarExtend = false;
   slideBarExtendStore.musicBarExtend = false;
 });

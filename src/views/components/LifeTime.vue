@@ -49,6 +49,7 @@ interface TimeData {
   Hardware: number;
   Drone: number;
   SkateBoard: number;
+  Study: number,
   [key: string]: number;
 }
 
@@ -56,20 +57,20 @@ interface TimeData {
 const activities = [
   { key: "Front_end", color: "#8dd3c7" },
   { key: "Hardware", color: "#80b1d3" },
-
   { key: "Drone", color: "#4db6ac" },
   { key: "SkateBoard", color: "#a4c2f4" },
+  { key: "Study", color: "#fccde5" },
 ];
 
 // 模拟时间数据 (0-24岁)
 const timeData: TimeData[] = [
-  { age: 15, Front_end: 0, Hardware: 5, Drone: 0, SkateBoard: 0 },
-  { age: 16, Front_end: 0, Hardware: 10, Drone: 0, SkateBoard: 0 },
-  { age: 17, Front_end: 0, Hardware: 5, Drone: 50, SkateBoard: 5 },
-  { age: 18, Front_end: 0, Hardware: 5, Drone: 40, SkateBoard: 0 },
-  { age: 19, Front_end: 0, Hardware: 30, Drone: 20, SkateBoard: 20 },
-  { age: 20, Front_end: 10, Hardware: 40, Drone: 0, SkateBoard: 20 },
-  { age: 21, Front_end: 50, Hardware: 30, Drone: 0, SkateBoard: 0 }
+  { age: 15, Front_end: 0, Hardware: 5, Drone: 0, SkateBoard: 0, Study: 50 },
+  { age: 16, Front_end: 0, Hardware: 10, Drone: 0, SkateBoard: 0, Study: 30 },
+  { age: 17, Front_end: 0, Hardware: 5, Drone: 50, SkateBoard: 5, Study: 0 },
+  { age: 18, Front_end: 0, Hardware: 5, Drone: 40, SkateBoard: 0, Study: 0 },
+  { age: 19, Front_end: 0, Hardware: 30, Drone: 20, SkateBoard: 20, Study: 0 },
+  { age: 20, Front_end: 10, Hardware: 40, Drone: 0, SkateBoard: 20, Study: 0 },
+  { age: 21, Front_end: 50, Hardware: 30, Drone: 0, SkateBoard: 0, Study: 0 },
 ];
 
 // 获取当前年龄的数据
@@ -178,7 +179,8 @@ const drawChart = () => {
     { key: "Front_end", x: 15, y: 80 },
     { key: "Drone", x: 15, y: 70 },
     { key: "Hardware", x: 15, y: 60 },
-    { key: "SkateBoard", x: 15, y: 50 }
+    { key: "SkateBoard", x: 15, y: 50 },
+    { key: "Study", x: 15, y: 40 },
   ];
 
   g.selectAll(".activity-label")

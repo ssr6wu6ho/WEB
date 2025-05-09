@@ -92,7 +92,7 @@ interface Message {
 const newMessage = ref('')          // 新留言内容
 const authorName = ref('')          // 用户昵称
 const authorAvatar = ref<File | null>(null) // 上传的头像文件
-  const messages = ref<Message[]>([]);
+const messages = ref<Message[]>([]);
 const isSubmitting = ref(false)     // 提交状态
 
 // 计算上传按钮显示文本
