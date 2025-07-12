@@ -45,7 +45,7 @@
       </div>
       <!-- Controls -->
       <div class="flex items-center justify-center gap-4">
-        <button @click="previousTrack" class="p-2 rounded-lg transition-colors"
+        <button class="p-2 rounded-lg transition-colors"
           :class="darkModeStore.isDark ? 'hover:bg-zinc-700' : 'hover:bg-gray-100'">
           <SkipBack class="w-5 h-5" />
         </button>
@@ -53,7 +53,7 @@
           <Play v-if="!isPlaying" class="w-5 h-5 text-white" />
           <Pause v-else class="w-5 h-5 text-white" />
         </button>
-        <button @click="nextTrack" class="p-2 rounded-lg transition-colors"
+        <button class="p-2 rounded-lg transition-colors"
           :class="darkModeStore.isDark ? 'hover:bg-zinc-700' : 'hover:bg-gray-100'">
           <SkipForward class="w-5 h-5" />
         </button>
@@ -64,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onUnmounted } from 'vue'
 import { Play, Pause, SkipForward, SkipBack, Maximize2, Minimize2, ListMusic, Disc3 } from 'lucide-vue-next'
 import { userDarkMOdel, userSlideBarExtend } from '../../store/stateStore'
 
@@ -92,16 +92,8 @@ const currentTrack = ref({
 
 
 const togglePlay = () => {
-  isPlaying.value = !isPlaying.value
 }
 
-const previousTrack = () => {
-  // Implement previous track logic
-}
-
-const nextTrack = () => {
-  // Implement next track logic
-}
 
 const formatTime = (seconds: number) => {
   const mins = Math.floor(seconds / 60)
@@ -109,16 +101,7 @@ const formatTime = (seconds: number) => {
   return `${mins}:${secs.toString().padStart(2, '0')}`
 }
 
-// Simulate progress updates
-//let progressInterval: number
-onMounted(() => {
-  // progressInterval = setInterval(() => {
-  //   if (isPlaying.value) {
-  //     currentTime.value = (currentTime.value + 1) % duration.value
-  //     progress.value = (currentTime.value / duration.value) * 100
-  //   }
-  // }, 1000)
-})
+
 
 onUnmounted(() => {
   //

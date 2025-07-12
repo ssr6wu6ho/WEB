@@ -66,8 +66,7 @@
       </h2>
       <div class="rounded-lg overflow-hidden">
         <div v-for="track in tracks" :key="track.id"
-          class="flex items-center justify-between p-4 hover:bg-zinc-700/50 transition-colors"
-          @click="playMusic(track)">
+          class="flex items-center justify-between p-4 hover:bg-zinc-700/50 transition-colors">
           <div class="flex items-center gap-4">
             <img :src="track.cover" :alt="track.title" class="w-12 h-12 rounded object-cover" />
             <div>
@@ -91,10 +90,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Play } from 'lucide-vue-next'
-import { userMusicState } from '../../store/stateStore'
 import { HeadphonesIcon, CatIcon } from 'lucide-vue-next'
 
-const musicStore = userMusicState()
 
 
 const albums = ref([
@@ -162,34 +159,14 @@ const secondRowAlbums = [...albums.value.slice(4, 9), ...albums.value.slice(4, 9
 const tracks = [
   {
     id: 1,
-    title: 'Midnight Dreams',
-    artist: 'Luna Wave',
-    cover: '/src/components/png_music/ILoveyouSoFuckingMuch.jpg',
+    title: 'Heat Wave',
+    artist: 'Glas sAnimals',
+    cover: '/src/components/png_music/Dreamland.jpg',
     duration: '3:45',
     url: '/src/components/music_1.m4a'
   },
-  {
-    id: 2,
-    title: 'Summer Breeze',
-    artist: 'Solar Beats',
-    cover: '/src/components/png_music/cyinc.jpg',
-    duration: '4:20',
-    url: '/src/components/music_2.m4a'
-  },
-]
-interface MusicTrack {
-  id: number;
-  title: string;
-  artist: string;
-  cover: string;
-  duration: string;
-  url: string;
-}
-const playMusic = (currentTrack: MusicTrack) => {
-  // 假设专辑接口返回 tracks
-  musicStore.setCurrentMusic(currentTrack);
-}
 
+]
 </script>
 
 <style scoped>
