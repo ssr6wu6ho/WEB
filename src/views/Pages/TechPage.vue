@@ -5,7 +5,7 @@
       {{ t('techPage.projects') }}
     </h2>
     <main class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-8 justify-content
-      border rounded-2xls border-gray-400/20 border-2 p-8 rounded-3xl">
+      rounded-2xls border-gray-400/20 border-2 p-8 rounded-3xl">
       <section class="mb-16 col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div v-for="project in projects" :key="project.id"
           class="relative rounded-lg overflow-hidden transition-colors p-4 hover:bg-slate-200/30"
@@ -108,7 +108,7 @@ const projects = computed(() => [
     id: 1,
     title: t('techPage.personWeb'),
     description: t('techPage.personWebIntro'),
-    image: '/src/components/png_praises/Web_.png',
+    image: 'images/Web_.png',
     tech: ['Vue.js', 'Typescript'],
     icon: [svg_vue, svg_tailwind, svg_typescript, svg_supabase]
   },
@@ -116,7 +116,7 @@ const projects = computed(() => [
     id: 2,
     title: t('techPage.APPXIOT'),
     description: t('techPage.APPXIOTIntro'),
-    image: '/src/components/png_praises/Iot_5.png',
+    image: 'images/Iot_5.png',
     tech: ['MQTT', 'Esp8266/32', 'Arudino', 'Android', 'java', 'C++'],
     icon: [svg_mqtt, svg_arduino, svg_android, svg_spring, svg_vue]
   },

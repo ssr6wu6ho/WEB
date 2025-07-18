@@ -96,32 +96,32 @@ const photos = [
   {
     id: 1,
     name: 'glass animals',
-    cover: '/src/components/png_other/bgbg.jpg',
+    cover: '/images/png_other/bgbg.jpg',
   },
   {
     id: 2,
     name: 'glass animals',
-    cover: '/src/components/png_life/ga3.jpg',
+    cover: '/images/png_life/ga3.jpg',
   },
   {
     id: 3,
     name: 'glass animals',
-    cover: '/src/components/png_life/sk1.jpg',
+    cover: '/images/png_life/sk1.jpg',
   },
   {
     id: 4,
     name: 'glass animals',
-    cover: '/src/components/png_life/sk3.jpg',
+    cover: '/images/png_life/sk3.jpg',
   },
 ]
 const videos = [
   {
     id: 1,
-    src: '/src/components/1f7c1dbda4e66d651967e2b5d6b6d541.mp4',
+    src: '/images/1f7c1dbda4e66d651967e2b5d6b6d541.mp4',
   },
   {
     id: 2,
-    src: '/src/components/4f77be389bcdb8f43a3679fc02016a2f.mp4',
+    src: '/images/4f77be389bcdb8f43a3679fc02016a2f.mp4',
   }
 ];
 
