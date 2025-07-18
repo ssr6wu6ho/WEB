@@ -98,55 +98,55 @@ const albums = ref([
   {
     id: 1,
     name: 'how to be a human being',
-    cover: '/src/components/png_music/HowToBeAHumanBeing.jpg',
+    cover: '/images/png_music/HowToBeAHumanBeing.jpg',
     trackCount: 25
   },
   {
     id: 2,
     name: 'omnipotent youth society',
-    cover: '/src/components/png_music/OmnipotentYouthSociety.jpg',
+    cover: '/images/png_music/OmnipotentYouthSociety.jpg',
     trackCount: 18
   },
   {
     id: 3,
     name: 'optimist',
-    cover: '/src/components/png_music/Optimist.jpg',
+    cover: '/images/png_music/Optimist.jpg',
     trackCount: 32
   },
   {
     id: 4,
     name: 'brent2',
-    cover: '/src/components/png_music/Brent2.jpg',
+    cover: '/images/png_music/Brent2.jpg',
     trackCount: 25
   },
   {
     id: 5,
     name: 'inside the cable temple',
-    cover: '/src/components/png_music/InsideTheCableTemple.jpg',
+    cover: '/images/png_music/InsideTheCableTemple.jpg',
     trackCount: 25
   },
   {
     id: 6,
     name: 'dreamland',
-    cover: '/src/components/png_music/Dreamland.jpg',
+    cover: '/images/png_music/Dreamland.jpg',
     trackCount: 25
   },
   {
     id: 9,
     name: 'ILoveyouSoFuckingMuch',
-    cover: '/src/components/png_music/ILoveyouSoFuckingMuch.jpg',
+    cover: '/images/png_music/ILoveyouSoFuckingMuch.jpg',
     trackCount: 25
   },
   {
     id: 8,
     name: 'cyinc',
-    cover: '/src/components/png_music/CYINC.jpg',
+    cover: '/images/png_music/CYINC.jpg',
     trackCount: 25
   },
   {
     id: 9,
     name: 'TheServile',
-    cover: '/src/components/png_music/TheServile.jpg',
+    cover: '/images/png_music/TheServile.jpg',
     trackCount: 25
   }
 
@@ -161,9 +161,9 @@ const tracks = [
     id: 1,
     title: 'Heat Wave',
     artist: 'Glas sAnimals',
-    cover: '/src/components/png_music/Dreamland.jpg',
+    cover: '/images/png_music/Dreamland.jpg',
     duration: '3:45',
-    url: '/src/components/music_1.m4a'
+    url: '/images/music_1.m4a'
   },
 
 ]
