@@ -119,15 +119,9 @@ const routeToPage = (route: string) => {
 }
 
 const systemStats = ref([
-    {
-        name: 'CPU LOAD', value: 45, color: 'bg-blue-500'
-    },
-    {
-        name: 'MEMORY', value: 72, color: 'bg-purple-500'
-    },
-    {
-        name: 'NETWORK', value: 89, color: 'bg-green-500'
-    }
+    { name: 'CPU LOAD', value: 45, color: 'bg-blue-500' },
+    { name: 'MEMORY', value: 72, color: 'bg-purple-500' },
+    { name: 'NETWORK', value: 89, color: 'bg-green-500' }
 ])
 // 模拟系统状态数据变化
 setInterval(() => {

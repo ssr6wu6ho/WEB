@@ -1,7 +1,7 @@
 <!--职责：主文件负责布局和状态栏的位置信息，但不直接处理状态栏的折叠逻辑。-->
 <template>
   <!--pointer-events-none pointer-events: none;，这样鼠标事件会穿透该组件，从而不会影响滚动条的使用。-->
-  <starBackground :is-dark="darkModeStore.isDark" class="fixed pointer-events-none" />
+  <starBackground class="fixed pointer-events-none" />
   <!-- 鼠标跟随效果 -->
   <div class=" fixed transition-opacity duration-300" :style="getMouseFollowStyle(1, 1)"></div>
   <!--全局背景以及字体颜色-->
@@ -89,8 +89,8 @@ const loadMessages = async () => {
   try {
     messages.value = (await getMessages()) as Message[];
     console.log(messages.value)
-  }catch (error) {
-        console.error('加载留言失败:', error);
+  } catch (error) {
+    console.error('加载留言失败:', error);
 
   }
 }
@@ -107,10 +107,13 @@ const renewNavBar = () => {
     slideBarExtendStore.leftBarExtend = false;
     slideBarExtendStore.musicBarExtend = false;
   } else if (techPage.value && scrollPosition < techPage.value.offsetTop + techPage.value.offsetHeight) {
+    //console.log(currentPageStore.currentIndex)
     currentPageStore.setCurrentPage(1);
   } else if (lifePage.value && scrollPosition < lifePage.value.offsetTop + lifePage.value.offsetHeight) {
+    //console.log(currentPageStore.currentIndex)
     currentPageStore.setCurrentPage(2);
   } else if (musicPage.value && scrollPosition < musicPage.value.offsetTop + musicPage.value.offsetHeight) {
+    //console.log(currentPageStore.currentIndex)
     currentPageStore.setCurrentPage(3);
   }
 }

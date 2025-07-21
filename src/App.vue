@@ -1,5 +1,5 @@
 <template>
-  <start />
+  <MainView />
 </template>
 
 <script setup>

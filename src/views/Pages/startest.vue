@@ -39,7 +39,6 @@ let camera: THREE.PerspectiveCamera
 let renderer: THREE.WebGLRenderer
 let starField: THREE.Points
 let galaxy: THREE.Points
-let stars: THREE.Points
 let animationId: number
 
 // 相机位置配置
@@ -64,11 +63,11 @@ const initThreeJS = () => {
   scene.background = new THREE.Color(0x1a0d2e)
 
   // 创建相机
-  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000)
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
   camera.position.set(0, 0, 50)
 
   // 创建渲染器
-  renderer = new THREE.WebGLRenderer({ canvas: canvasRef.value, antialias: true })
+  renderer = new THREE.WebGLRenderer({ canvas: canvasRef.value, antialias: true,alpha: true })
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
@@ -84,34 +83,6 @@ const initThreeJS = () => {
 
   // 开始渲染循环
   animate()
-}
-
-
-const createStars = () => {
-  const geometry = new THREE.BufferGeometry()
-  const vertices = []
-
-  for (let i = 0; i < 5000; i++) {
-    vertices.push(
-      Math.random() * 600 - 300, 
-      Math.random() * 600 - 300,
-      Math.random() * 600 - 300 
-    )
-  }
-
-  geometry.setAttribute(
-    'position',
-    new THREE.Float32BufferAttribute(vertices, 3)
-  )
-
-  const material = new THREE.PointsMaterial({
-    color: 0xffffff,
-    size: 1,
-    transparent: true
-  })
-
-  stars = new THREE.Points(geometry, material)
-  scene.add(stars)
 }
 
 // 创建星空背景
