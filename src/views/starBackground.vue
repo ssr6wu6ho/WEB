@@ -13,13 +13,12 @@ const props = defineProps<{
 
 const container = ref<HTMLDivElement>() 
 let scene: THREE.Scene                 
-let camera: THREE.PerspectiveCamera     // ͸��ͶӰ���
-let renderer: THREE.WebGLRenderer       // WebGL��Ⱦ��
-
-let stars: THREE.Points                 // �ǿ�����ϵͳ
-let rainLines: THREE.Group              // ���������
-let cloudParticles: THREE.Points        // ��������ϵͳ
-let animationFrameId: number            // ����֡ID������ȡ��������
+let camera: THREE.PerspectiveCamera     
+let renderer: THREE.WebGLRenderer       
+let stars: THREE.Points
+let rainLines: THREE.Group
+let cloudParticles: THREE.Points 
+let animationFrameId: number
 
 
 const createStars = () => {
@@ -39,11 +38,10 @@ const createStars = () => {
     new THREE.Float32BufferAttribute(vertices, 3)
   )
 
-  // ��������ʣ���ɫ����С1px������͸����
   const material = new THREE.PointsMaterial({
-    color: 0xffffff,    // ��ɫ
-    size: 1,            // ���С
-    transparent: true   // ����͸��
+    color: 0xffffff,
+    size: 1,
+    transparent: true
   })
 
   stars = new THREE.Points(geometry, material)
@@ -63,9 +61,9 @@ const createRainEffect = () => {
 
   for (let i = 0; i < cloudCount; i++) {
     cloudVertices.push(
-      Math.random() * 400 - 200, // x �� [-200, 200)
-      150 + Math.random() * 20,  // y �� [150, 170)
-      Math.random() * 400 - 200  // z �� [-200, 200)
+      Math.random() * 400 - 200,
+      150 + Math.random() * 20,
+      Math.random() * 400 - 200
     )
   }
 
@@ -76,7 +74,7 @@ const createRainEffect = () => {
 
   const cloudMaterial = new THREE.PointsMaterial({
     color: 0x444444,
-    size: 15,            // ��ߴ��ģ���ƶ�
+    size: 15,
     transparent: true,
     opacity: 0.3,
     depthWrite: false   
@@ -91,12 +89,10 @@ const createRainEffect = () => {
   for (let i = 0; i < rainCount; i++) {
     const geometry = new THREE.BufferGeometry()
     const vertices = new Float32Array([
-      0, 0, 0,   // ���
-      0, -15, 0  // �յ㣨�������죩
+      0, 0, 0,
+      0, -15, 0 
     ])
-
     geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3))
-
     const material = new THREE.LineBasicMaterial({
       color: 0x6699cc,
       transparent: true,
@@ -181,7 +177,6 @@ watch(() => props.isDark, (newValue) => {
   if (rainLines) scene.remove(rainLines)
   if (cloudParticles) scene.remove(cloudParticles)
 
-  // ������Ч��
   if (newValue) {
     createStars()
   } else {
@@ -189,7 +184,6 @@ watch(() => props.isDark, (newValue) => {
   }
 })
 
-// �������ڴ�С�仯
 const handleResize = () => {
   if (!camera || !renderer) return
 
