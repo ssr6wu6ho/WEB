@@ -4,7 +4,6 @@
 
 <script setup>
 import MainView from './views/MainView.vue';
-import start from'./views/Pages/startest.vue'
 </script>
 
 <style>
