@@ -2,15 +2,14 @@
   <div class="relative min-h-screen w-full overflow-hidden p-8">
 
     <!-- Photo Grid -->
-    <section class="mb-16">
+    <section class="mb-8">
       <h1 class="text-7xl font-bold mb-8 flex items-center gap-2">
         🛹 & 📸
       </h1>
       <lifeTime class="mb-10"></lifeTime>
-      <div class="grid lg:grid-cols-5 gap-6 border-gray-400/20 border-2 rounded-3xl">
+      <div class="grid lg:grid-cols-5 border-gray-400/20 border-2 rounded-3xl overflow-hidden">
         <div class="col-span-2 grid grid-rows-5 gap-6 p-6">
-          <div class="row-span-4 group  bg-zinc-800/50 rounded-lg overflow-hidden ">
-
+          <div class="row-span-4 group  bg-zinc-800/50 rounded-lg">
             <div class="grid grid-cols-2 h-1/2 p-6 gap-4">
               <div class="relative">
                 <video autoplay loop muted class="w-full h-full object-cover transition-transform rounded-lg overflow-hidden 
@@ -31,7 +30,6 @@
                 </div>
               </div>
             </div>
-
             <div class="h-1/2 relative p-2 ">
               <video autoplay loop muted
                 class=" w-full h-full object-cover rounded-lg overflow-hidden transition-transform duration-500 group-hover:scale-110">
@@ -52,7 +50,7 @@
         </div>
 
         <!-- 后半部分 -->
-        <div class="col-span-3 grid  gap-6 m-10">
+        <div class="col-span-3 grid gap-6 m-6">
           <div class="grid grid-cols-2 gap-6 row-span-2 rounded-lg p-4"
             :class="[darkModeStore.isDark ? 'bg-zinc-800/50' : 'bg-slate-500/30 shadow-lg']">
             <div class="group relative aspect-square bg-zinc-800/50 rounded-lg overflow-hidden">

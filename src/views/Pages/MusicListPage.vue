@@ -1,7 +1,7 @@
 <template>
   <div class="relative min-h-screen w-full overflow-hidden p-8">
     <!-- Playlist Grid -->
-    <section class="mb-16">
+    <section class="mb-8">
       <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
         <component :is="HeadphonesIcon" class="w-6 h-6" />
         ACTIVE_PLAYLISTS

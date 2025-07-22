@@ -161,8 +161,8 @@ const updateWidth = () => {
   slideBarExtendStore.musicBarExtend = windowWidth.value >= 1024;
 };
 const handleMouseMove = (e: MouseEvent) => {
-  mouseX.value = (e.clientX / window.innerWidth - 0.5) * 2; // 归一化为[-1,1]
-  mouseY.value = (e.clientY / window.innerHeight - 0.5) * 2;
+  mouseX.value = (e.clientX / window.innerWidth - 0.5) * 4; // 归一化为[-1,1]
+  mouseY.value = (e.clientY / window.innerHeight - 0.5) * 4;
 };
 // 鼠标跟随移动的计算方法
 const getMouseFollowStyle = (scaleFactor: number, rotateFactor: number) => {

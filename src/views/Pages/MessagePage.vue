@@ -2,7 +2,7 @@
   <div class="min-h-screen p-8">
     <!-- 留言表单区域 -->
     <div class="relative z-10 mx-auto max-w-4xl">
-      <section class="mb-16">
+      <section class="mb-8">
         <h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
           <component :is="MessagesSquareIcon" class="w-6 h-6" />
           PLZ_LEAVE_A_MESSAGE

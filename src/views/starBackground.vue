@@ -38,7 +38,7 @@ const createGalaxy = () => {
   const positions = new Float32Array(count * 3)
   const colors = new Float32Array(count * 3)
   const sizes = new Float32Array(count) // 添加大小数组用于不同大小的粒子
-  
+
   // 调整颜色 - 更符合真实星系
   const innerColor = new THREE.Color('#ffffff') // 中心白色
   const middleColor = new THREE.Color('#ffd700') // 中间金黄色
@@ -48,12 +48,12 @@ const createGalaxy = () => {
   for (let i = 0; i < count; i++) {
     // 使用指数分布让中心密度更高
     const random = Math.random()
-    const radius = Math.pow(random, 0.3) * 80 // 大幅增加外半径到80，使用指数分布
-    
+    const radius = Math.pow(random, 0.3) * 70 //使用指数分布
+
     // 螺旋角度 - 调整螺旋紧密度
     const spinAngle = radius * 0.15 // 减小螺旋角度系数，让螺旋更自然
     const branchAngle = (i % 4) * ((2 * Math.PI) / 4) // 改为4个螺旋臂
-    
+
     // 随机偏移 - 根据半径调整偏移量
     const randomFactor = Math.pow(radius / 80, 0.5) // 外围偏移更大
     const randomX = Math.pow(Math.random(), 2) * (Math.random() < 0.5 ? 1 : -1) * randomFactor * 2
@@ -67,7 +67,7 @@ const createGalaxy = () => {
     // 更复杂的颜色渐变系统
     const mixedColor = new THREE.Color()
     const normalizedRadius = radius / 80
-    
+
     if (normalizedRadius < 0.1) {
       // 核心区域 - 白色到金黄色
       mixedColor.lerpColors(innerColor, middleColor, normalizedRadius / 0.1)
@@ -82,11 +82,11 @@ const createGalaxy = () => {
     colors[i * 3] = mixedColor.r
     colors[i * 3 + 1] = mixedColor.g
     colors[i * 3 + 2] = mixedColor.b
-    
+
     // 根据距离中心的远近设置粒子大小 - 中心更大更亮
     sizes[i] = Math.max(0.3, (1 - normalizedRadius) * 2 + Math.random() * 0.5)
   }
-
+  //定义粒子的几何形状（这里只有点，没有面）
   const geometry = new THREE.BufferGeometry()
   geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
   geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
@@ -94,11 +94,11 @@ const createGalaxy = () => {
 
   const material = new THREE.PointsMaterial({
     size: 1.2, // 基础大小
-    sizeAttenuation: true,
-    transparent: true,
-    opacity: 0.8,
-    depthWrite: false,
-    vertexColors: true,
+    sizeAttenuation: true, // 距离越远，粒子越小（透视效果）
+    transparent: true, // 允许透明
+    opacity: 0.8, // 整体透明度
+    depthWrite: false,  // 不写入深度缓冲区（防止粒子相互遮挡）
+    vertexColors: true, // 使用顶点颜色（即colors数组）
     blending: THREE.AdditiveBlending, // 添加发光效果
   })
 
@@ -109,18 +109,18 @@ const createGalaxy = () => {
 //初始化
 const initThreeJS = () => {
   if (!container.value) return
-  
+
   //创建场景和相机
   scene = new THREE.Scene()
   camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000)
   camera.position.set(0, 5, 50)
-  
+
   // 创建渲染器
   //alpha: true,背景变为透明色
   renderer = new THREE.WebGLRenderer({ alpha: true })
   renderer.setSize(window.innerWidth, window.innerHeight)
   container.value.appendChild(renderer.domElement)
-  
+
   if (darkModeStore.isDark) {
     createStars()
     createGalaxy()
@@ -128,7 +128,7 @@ const initThreeJS = () => {
   } else {
     createRain()
   }
-  
+
   animate()
 }
 
@@ -136,7 +136,7 @@ const initThreeJS = () => {
 const createStars = () => {
   const geometry = new THREE.BufferGeometry()
   const vertices = []
-  
+
   for (let i = 0; i < 5000; i++) {
     vertices.push(
       Math.random() * 600 - 300,
@@ -144,18 +144,18 @@ const createStars = () => {
       Math.random() * 600 - 300
     )
   }
-  
+
   geometry.setAttribute(
     'position',
     new THREE.Float32BufferAttribute(vertices, 3)
   )
-  
+
   const material = new THREE.PointsMaterial({
     color: 0xffffff,
     size: 1,
     transparent: true
   })
-  
+
   stars = new THREE.Points(geometry, material)
   scene.add(stars)
 }
@@ -166,7 +166,7 @@ const animateStarsAndGalaxy = () => {
     stars.rotation.y += 0.0004
     stars.rotation.x += 0.0002
   }
-  
+
   if (galaxy) {
     galaxy.rotation.y += 0.0002
     galaxy.rotation.x += 0.0001
@@ -176,11 +176,11 @@ const animateStarsAndGalaxy = () => {
 //改变相机
 const updateCamera = () => {
   const targetPos = cameraPositions[currentPageStore.currentIndex]
-  console.log(currentPageStore.currentIndex)
-  
+  //console.log(currentPageStore.currentIndex)
+
   targetPosition.set(targetPos.position[0], targetPos.position[1], targetPos.position[2])
   targetLookAt.set(targetPos.lookAt[0], targetPos.lookAt[1], targetPos.lookAt[2])
-  
+
   // 平滑过渡相机位置
   camera.position.lerp(targetPosition, 0.02)
   camera.lookAt(targetLookAt)
@@ -190,7 +190,7 @@ const createRain = () => {
   const cloudGeometry = new THREE.BufferGeometry()
   const cloudVertices = []
   const cloudCount = 200
-  
+
   for (let i = 0; i < cloudCount; i++) {
     cloudVertices.push(
       Math.random() * 400 - 200,
@@ -198,12 +198,12 @@ const createRain = () => {
       Math.random() * 400 - 200
     )
   }
-  
+
   cloudGeometry.setAttribute(
     'position',
     new THREE.Float32BufferAttribute(cloudVertices, 3)
   )
-  
+
   const cloudMaterial = new THREE.PointsMaterial({
     color: 0x444444,
     size: 15,
@@ -211,50 +211,50 @@ const createRain = () => {
     opacity: 0.3,
     depthWrite: false
   })
-  
+
   cloudParticles = new THREE.Points(cloudGeometry, cloudMaterial)
   scene.add(cloudParticles)
-  
+
   rainLines = new THREE.Group()
   const rainCount = 1000
-  
+
   for (let i = 0; i < rainCount; i++) {
     const geometry = new THREE.BufferGeometry()
     const vertices = new Float32Array([
       0, 0, 0,
       0, -15, 0
     ])
-    
+
     geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3))
-    
+
     const material = new THREE.LineBasicMaterial({
       color: 0x6699cc,
       transparent: true,
       opacity: 0.6
     })
-    
+
     const line = new THREE.Line(geometry, material)
     line.position.set(
       Math.random() * 400 - 200,
       Math.random() * 300 + 150,
       Math.random() * 400 - 200
     )
-    
+
     rainLines.add(line)
   }
-  
+
   scene.add(rainLines)
 }
 
 const animateRain = () => {
   if (!rainLines) return
-  
+
   const cloudPositions = cloudParticles.geometry.attributes.position.array as Float32Array
   for (let i = 0; i < cloudPositions.length; i += 3) {
     cloudPositions[i] += Math.sin(Date.now() * 0.001) * 0.02
   }
   cloudParticles.geometry.attributes.position.needsUpdate = true
-  
+
   const fallSpeed = 2
   rainLines.children.forEach(line => {
     line.position.y -= fallSpeed
@@ -268,27 +268,27 @@ const animateRain = () => {
 
 const animate = () => {
   animationId = requestAnimationFrame(animate)
-  
+
   if (darkModeStore.isDark) {
     animateStarsAndGalaxy()
     updateCamera()
   } else {
     animateRain()
   }
-  
+
   // 渲染场景
   renderer.render(scene, camera)
 }
 
 watch(() => darkModeStore.isDark, (newValue) => {
   if (!scene) return
-  
+
   //移除旧元素
   if (stars) scene.remove(stars)
   if (rainLines) scene.remove(rainLines)
   if (cloudParticles) scene.remove(cloudParticles)
   if (galaxy) scene.remove(galaxy)
-  
+
   if (newValue) {
     createStars()
     createGalaxy() // 使用新的银河创建函数
@@ -305,7 +305,7 @@ watch(() => currentPageStore.currentIndex, (newValue) => {
 
 const handleResize = () => {
   if (!camera || !renderer) return
-  
+
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
   renderer.setSize(window.innerWidth, window.innerHeight)

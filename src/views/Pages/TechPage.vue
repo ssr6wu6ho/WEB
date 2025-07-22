@@ -6,7 +6,7 @@
     </h2>
     <main class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-8 justify-content
       rounded-2xls border-gray-400/20 border-2 p-8 rounded-3xl">
-      <section class="mb-16 col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <section class="mb-8 col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div v-for="project in projects" :key="project.id"
           class="relative rounded-lg overflow-hidden transition-colors p-4 hover:bg-slate-200/30"
           :class="[darkModeStore.isDark ? 'bg-zinc-800/50' : 'bg-slate-500/30 shadow-lg']"
@@ -27,18 +27,17 @@
               </span>
             </div>
             <div class="mt-4 flex gap-2">
-              <component v-for="icon in project.icon" :key="icon" :is="icon" class=" w-6 h-6">
+              <component v-for="icon in project.icon" :key="icon" :is="icon" class="w-6 h-6">
               </component>
             </div>
             <br>
-            <button class="text-sm font-medium hover:text-white transition-colors md:mt-4">
+            <button class="text-sm font-medium hover:text-white transition-colors">
               {{ t('techPage.readMore') }} →
             </button>
           </div>
         </div>
       </section>
-
-      <section class="mb-16">
+      <section>
         <div class="gap-8 justify-content ">
           <h3 class="text-xl font-bold mb-2 flex items-center">{{ t('techPage.techStack') }}</h3>
           <div class="p-6 rounded-lg">
@@ -46,7 +45,7 @@
               <h3 :class="skill.title" class="text-gray-400 mb-4">{{ skill.title }}</h3>
               <div class="flex flex-wrap items-center gap-2 mb-2">
                 <!-- 每个条目容器改用横向排列 -->
-                <div v-for="frontend in skill.frontend" class="flex items-center gap-2 p-2">
+                <div v-for="frontend in skill.frontend" class="flex items-center gap-2 p-1">
                   <component :is="frontend.icons" class="w-6 h-6" />
                   <p>{{ frontend.skill }}</p>
                   <div class="flex h-2 rounded-full overflow-hidden"
@@ -57,7 +56,7 @@
                 </div>
               </div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <div v-for="hardwear in skill.hardWear" class="flex items-center gap-2 p-2">
+                <div v-for="hardwear in skill.hardWear" class="flex items-center gap-2 p-1">
                   <component :is="hardwear.icons" class="w-6 h-6" />
                   <p>{{ hardwear.skill }}</p>
                   <div class="flex h-2 rounded-full overflow-hidden"
