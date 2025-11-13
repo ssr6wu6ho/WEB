@@ -3,12 +3,10 @@
 
     <!-- Photo Grid -->
     <section class="mb-8">
-      <h1 class="text-7xl font-bold mb-8 flex items-center gap-2">
-        🛹 & 📸
-      </h1>
+      <h1 class="text-7xl font-bold mb-8 flex items-center gap-2"> 🛹 & 📸</h1>
       <lifeTime class="mb-10"></lifeTime>
       <div class="grid lg:grid-cols-5 border-gray-400/20 border-2 rounded-3xl overflow-hidden">
-        <div class="col-span-2 grid grid-rows-5 gap-6 p-6">
+        <!-- <div class="col-span-2 grid grid-rows-5 gap-6 p-6">
           <div class="row-span-4 group  bg-zinc-800/50 rounded-lg">
             <div class="grid grid-cols-2 h-1/2 p-6 gap-4">
               <div class="relative">
@@ -47,10 +45,10 @@
               LifePhoto</h3>
             <p class="text-sm mt-2">👽👽👽👽</p>
           </div>
-        </div>
+        </div> -->
 
         <!-- 后半部分 -->
-        <div class="col-span-3 grid gap-6 m-6">
+        <div class="col-span-3 grid gap-6 m-6 w-[150px] sm:w-[200px] md:w-[300px] lg:w-[400px]">
           <div class="grid grid-cols-2 gap-6 row-span-2 rounded-lg p-4"
             :class="[darkModeStore.isDark ? 'bg-zinc-800/50' : 'bg-slate-500/30 shadow-lg']">
             <div class="group relative aspect-square bg-zinc-800/50 rounded-lg overflow-hidden">
