@@ -39,7 +39,7 @@
               <!-- `relative` 类 -->
               <!-- 设置相对定位，以便子元素可以绝对定位在这个容器内 -->
               <div
-                class="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden p-1w-[150px] sm:w-[200px] md:w-[300px] lg:w-[400px]">
+                class="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden p-1 w-[150px] sm:w-[200px] md:w-[300px] lg:w-[400px]">
                 <img :src="album.cover" alt="album.name" class="w-full h-full">
                 <!--确保包含滚动内容的父元素设置了 position: relative，这样 absolute 定位的子元素才能相对于它进行定位。-->
                 <div
