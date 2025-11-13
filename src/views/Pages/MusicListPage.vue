@@ -13,7 +13,8 @@
         <div class="overflow-x-hidden space-x-4 p-4">
           <div class="flex flex-nowrap gap-4 w-max scroll-animation">
             <div v-for="album in firstRowAlbums" :key="album.id">
-              <div class="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden p-1 w-[400px]">
+              <div
+                class="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden p-1 w-[150px] sm:w-[200px] md:w-[300px] lg:w-[400px]">
                 <img :src="album.cover" alt="album.name" class="w-full h-full object-cover">
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -37,7 +38,8 @@
               <!-- 用于在子元素中使用 `group-hover` 等修饰符 -->
               <!-- `relative` 类 -->
               <!-- 设置相对定位，以便子元素可以绝对定位在这个容器内 -->
-              <div class="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden p-1 w-[400px]">
+              <div
+                class="group relative aspect-square bg-gray-800 rounded-lg overflow-hidden p-1w-[150px] sm:w-[200px] md:w-[300px] lg:w-[400px]">
                 <img :src="album.cover" alt="album.name" class="w-full h-full">
                 <!--确保包含滚动内容的父元素设置了 position: relative，这样 absolute 定位的子元素才能相对于它进行定位。-->
                 <div
@@ -83,7 +85,6 @@
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
